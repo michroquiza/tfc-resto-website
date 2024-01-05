@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Filipino Club Restaurant Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Orelega+One&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="./images/homepage/" type="image/x-icon">
+    <link href="https://unpkg.com/modern-normalize@1.1.0/modern-normalize.css" rel="stylesheet">
+    <!-- Main style of website -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="./images/homepage/favicon_32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin="">
+        </script>
+    <script src="leaflet-providers.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container">
+            <a href="index.html">
+                <img class="logo" src="./images/homepage/tfc-logo-big@2x.png"
+                    alt="The Filipino Club Restaurant logo"></a>
+            <nav class="topnav">
+                <ul class="topnav__list">
+                    <a href="#ourmenu">
+                        <img src="./images/homepage/restaurant_menu_white_24dp.svg" alt="" class="main-menu icons"></a>
+                    <li class="topnav__item"><a class="topnav__link" href="#ourmenu">MENU</a></li>
+                    <li class="topnav__item"><a class="topnav__link" href="#">ABOUT</a></li>
+                    <div class="shopping-bag">
+                        <img src="./images/homepage/shopping-bag.svg" alt="" class="bag">
+                        <span class="bag-counter" id="counter">0</span>
+                    </div>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="side-bag__wrapper">
+        <div class="side-bag">
+            <div id="close" class="close-styled">
+                <img class="close-btn" src="./images/homepage/close.svg" alt="">
+            </div>
+            <h3 class="side-bag__title">YOUR BAG</h3>
+            <div class="scroll">
+                <div class="side-bag__container">
+                </div>
+            </div>
+            <hr>
+            <!-- TOTAL -->
+            <div class="full-total">
+                <div class="total-title style">
+                    <div class="subtotal-name del-style">SUBTOTAL: </div>
+                    <div class="delivery-name del-style">DELIVERY CHARGE: </div>
+                    <div class="total-name total-style">TOTAL: </div>
+                </div>
+                <div class="totals style">
+                    <div class="subtotal-price del-style">₱0</div>
+                    <div class="delivery-charge del-style">₱70</div>
+                    <div class="total-price total-style">₱0</div>
+                </div>
+            </div>
+            <button class="checkout">CHECKOUT</button>
+        </div>
+    </div>
+    <div class="hero-wrapper">
+        <div class="hero">
+            <div class="hero-title-wrapper">
+                <h1 class="hero__title">Savor the Flavors of the Philippines</h1>
+            </div>
+            <p class="hero__subtitle">traditional Filipino dishes using only local ingredients</p>
+            <button class="book-btn" data-modal-target="#modal">BOOK NOW</button>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">RESERVATION</h3>
+            <button data-close-button class="close-button-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="mobile-row">
+                <select name="guests" id="guest">
+                    <option value="1">1 guest</option>
+                    <option value="2">2 guests</option>
+                    <option value="3">3 guests</option>
+                    <option value="4">4 guests</option>
+                    <option value="5">5 guests</option>
+                    <option value="6">6 guests</option>
+                    <option value="7">7 guests</option>
+                    <option value="8">8 guests</option>
+                </select>
+                <input type="date" name="calendar-date" id="calendar" class="calendardate" value="2020-09-23"
+                    min="2020-09-23">
+                <select name="arrival" id="time">
+                    <option value="9">9:00 AM</option>
+                    <option value="10">10:00 AM</option>
+                    <option value="11">10:30 AM</option>
+                    <option value="12">11:00 AM</option>
+                    <option value="13">11:30 AM</option>
+                    <option value="14">12:00 AM</option>
+                    <option value="15">12:30 AM</option>
+                    <option value="16">1:00 AM</option>
+                    <option value="17">1:30 AM</option>
+                    <option value="18">2:00 AM</option>
+                    <option value="19">2:30 AM</option>
+                    <option value="20">3:00 AM</option>
+                    <option value="21">3:30 AM</option>
+                    <option value="22">4:00 AM</option>
+                    <option value="23">4:30 AM</option>
+                    <option value="24">5:00 AM</option>
+                    <option value="25">5:30 AM</option>
+                    <option value="26">6:00 AM</option>
+                    <option value="27">6:30 AM</option>
+                    <option value="28">7:00 AM</option>
+                    <option value="29">7:30 AM</option>
+                    <option value="30">8:00 AM</option>
+                    <option value="31">8:30 AM</option>
+                </select>
+            </div>
+        </div>
+        <div class="reserve-center">
+            <button class="reserve" data-close-button>RESERVE</button>
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <div class="menu-container">
+        <div class="menu">
+            <h2 class="menu__title" id="ourmenu">Our Menu</h2>
+            <nav class="navmenu">
+                <ul class="navmenu__list">
+                    <li class="navmenu__item"><a href="#menu" class="navmenu__link active"
+                            onclick="openMenu(event, 'Appetizers'); removeHash()" id="defaultOpen">APPETIZERS</a>
+                    </li>
+                    <li class="navmenu__item"><a href="#menu" class="navmenu__link"
+                            onclick="openMenu(event, 'Breakfast'); removeHash()">BREAKFAST</a>
+                    </li>
+                    <li class="navmenu__item"><a href="#menu" class="navmenu__link"
+                            onclick="openMenu(event, 'Noodles'); removeHash()">NOODLES</a>
+                    </li>
+                    <li class="navmenu__item"><a href="#menu" class="navmenu__link"
+                            onclick="openMenu(event, 'Seafood'); removeHash()">SEAFOOD</a>
+                    </li>
+                    <li class="navmenu__item"><a href="#menu" class="navmenu__link"
+                            onclick="openMenu(event, 'Stews'); removeHash()">STEWS & SOUPS</a>
+                    </li>
+                    <li class="navmenu__item"><a href="#menu" class="navmenu__link"
+                            onclick="openMenu(event, 'Veggies'); removeHash()">VEGGIES</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="menu-content">
+                <div class="menu-cards" id="Appetizers">
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/appetizers/camaron-rebusado.jpg"
+                            alt="Deepfried coated shrimps">
+                        <h3 class="menu-cards__menu-name">Cameron Rebosado</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/appetizers/dynamite-lumpia.jpg"
+                            alt="Chili pepper stuffed with beef and cheese wrapped in a spring roll wrapper">
+                        <h3 class="menu-cards__menu-name">Dynamite Lumpia</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/appetizers/lumpiang-sariwa.jpg"
+                            alt="Fresh variety of vegetables wrapped in spring roll paper">
+                        <h3 class="menu-cards__menu-name">Fresh Lumpia</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/appetizers/sizzling-sisig.jpg"
+                            alt="Chopped pork seasoned with chili and kalamansi">
+                        <h3 class="menu-cards__menu-name">Sizzling Pork Sisig</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-cards" id="Breakfast">
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/breakfast/champorado.jpg"
+                            alt="Cocoa-flavored rice porridge poured with milk">
+                        <h3 class="menu-cards__menu-name">Champorado</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/breakfast/longsilog.jpg"
+                            alt="Pork sausage with garlic fried rice and egg">
+                        <h3 class="menu-cards__menu-name">Longsilog</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/breakfast/tapsilog.jpg"
+                            alt="Beef cutlets with garlic fried rice and egg">
+                        <h3 class="menu-cards__menu-name">Tapsilog</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/breakfast/tocilog.jpg"
+                            alt="Pork tocino with garlic fried rice and egg">
+                        <h3 class="menu-cards__menu-name">Tocilog</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-cards" id="Noodles">
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/noodles/lapaz-batchoy.jpg"
+                            alt="noodle soup made with pork offal, crushed pork cracklings, chicken stock, beef loin and round noodles">
+                        <h3 class="menu-cards__menu-name">La Paz Batchoy</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/noodles/miki-bihon.jpg"
+                            alt="Stif-fried noodles mixed with rice and egg noodles">
+                        <h3 class="menu-cards__menu-name">Miki Bihon</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/noodles/pancit-palabok.jpg"
+                            alt="Noodles smoothered in shrimp sauce with boiled eggs, shrimp and fermented fish flakes">
+                        <h3 class="menu-cards__menu-name">Pancit Palabok</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/noodles/sotanghon-soup.jpg" alt="Glass noodle soup">
+                        <h3 class="menu-cards__menu-name">Sotanghon</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-cards" id="Seafood">
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/seafood/adobongpusit.jpg"
+                            alt="Squid marinated and cooked in soy sauce">
+                        <h3 class="menu-cards__menu-name">Squid Adobo</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/seafood/daing-na-bangus.jpg"
+                            alt="Pan-fried marinated milkfish">
+                        <h3 class="menu-cards__menu-name">Daing na Bangus</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/seafood/sinigangbangus.jpg" alt="Fish sour soup">
+                        <h3 class="menu-cards__menu-name">Bangus Sinigang</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/seafood/sweet-and-sour-tilapia.jpg"
+                            alt="Fried tilapia covered in sweet and sour sauce">
+                        <h3 class="menu-cards__menu-name">Sweet and Sour Tilapia</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-cards" id="Stews">
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/stews-and-soups/bulalo.jpg" alt="Beef bone soup">
+                        <h3 class="menu-cards__menu-name">Bulalo Soup</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/stews-and-soups/chicken-adobo.jpg"
+                            alt="Chicken stew marinated in soy sauce">
+                        <h3 class="menu-cards__menu-name">Chicken Adobo</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/stews-and-soups/mechado.jpg"
+                            alt="Tomato-based beef stew">
+                        <h3 class="menu-cards__menu-name">Mechado</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/stews-and-soups/tinolang-manok.jpg"
+                            alt="Chicken soup with papaya">
+                        <h3 class="menu-cards__menu-name">Chicken Tinola</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-cards" id="Veggies">
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/veggies/adobong-sitaw.jpg"
+                            alt="Green been marinated and cooked in soy sauce">
+                        <h3 class="menu-cards__menu-name">Adobong Sitaw</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/veggies/chopseuy.jpg" alt="sauted vegetables">
+                        <h3 class="menu-cards__menu-name">Chopseuy</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/veggies/ginisang-ampalaya.jpg"
+                            alt="sauteed ampalaya with eggs">
+                        <h3 class="menu-cards__menu-name">Ginisang Ampalaya</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                    <div class="menu-cards__menu-card">
+                        <img class="menu-cards__img" src="./images/veggies/pinakbet.jpg"
+                            alt="Vegetables stew using fermented fish sauce">
+                        <h3 class="menu-cards__menu-name">Pinakbet</h3>
+                        <div class="menu-cards__menu-info">
+                            <span class="menu-info__price">₱100</span>
+                            <button class="order-btn">ORDER</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="booking-container">
+        <div class="booking">
+            <h2 class="booking__title">Dine With Us!</h2>
+            <p class="booking__content">Savor and experience an unforgettable blend of delectable food and live OPM
+                performances!</p>
+            <button class="book-btn" data-modal-target="#modal">BOOK NOW</button>
+        </div>
+    </div>
+    <div class="btt-container">
+        <button class="back-to-top" id="btt"><img src="./images/homepage/back-to-top.svg" alt=""></button>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="time">
+                <h2 class="time__time-title">Opening Hours</h2>
+                <div class="weekdays"></div>
+                <p class="day">Monday - Friday</p>
+                <p class="hour">9:00 AM - 8:00 PM </p>
+                <div class="space"></div>
+                <p class="day">Saturday - Sunday</p>
+                <p class="hour">9:00 AM - 8:00 PM </p>
+            </div>
+            <div class="contact">
+                <h2 class="contact__contact-title">Talk to Us!</h2>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <address>
+                            <img class="envelope" src="./images/homepage/envelope.svg" alt="">
+                            <a class="email" href="mailto:example@email.com"> tfcresto@email.com</a>
+                        </address>
+                    </div>
+                    <div class="contact-info"><img class="phone" src="./images/homepage/phone.svg" alt="">
+                        <a class="telnum" href="tel:+639123456789">+639123456789</a>
+                    </div>
+                    <div class="contact-info">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                                <path id="facebook"
+                                    d="M20,40A20,20,0,0,1,5.858,5.858,20,20,0,0,1,34.142,34.142,19.869,19.869,0,0,1,20,40ZM15,16.613v3.36h2.013v9.986h4.135V19.974h2.775c0-.01.261-1.617.386-3.372H21.165V14.3a.982.982,0,0,1,.9-.8h2.254V10H21.251A4.423,4.423,0,0,0,18,11.095a3.7,3.7,0,0,0-.985,2.737v2.782Z"
+                                    fill="#f2f2f2" />
+                            </svg>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                                <path id="instagram"
+                                    d="M20,40A20,20,0,0,1,5.858,5.858,20,20,0,0,1,34.142,34.142,19.869,19.869,0,0,1,20,40ZM16.245,10A6.263,6.263,0,0,0,10,16.246V24.72a6.261,6.261,0,0,0,6.246,6.244H24.72a6.26,6.26,0,0,0,6.244-6.245V16.245A6.261,6.261,0,0,0,24.719,10Zm8.474,18.857H16.245a4.143,4.143,0,0,1-4.136-4.137V16.245a4.143,4.143,0,0,1,4.137-4.136H24.72a4.143,4.143,0,0,1,4.136,4.137v8.474A4.142,4.142,0,0,1,24.719,28.857Zm-4.237-13.8a5.422,5.422,0,1,0,5.423,5.422,5.438,5.438,0,0,0-5.423-5.422ZM25.915,13.8a1.3,1.3,0,1,0,1.3,1.3A1.3,1.3,0,0,0,25.915,13.8ZM20.482,23.8A3.313,3.313,0,1,1,23.8,20.483,3.317,3.317,0,0,1,20.482,23.8Z"
+                                    fill="#f2f2f2" />
+                            </svg>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+                                <path id="twitter"
+                                    d="M20,40A20,20,0,0,1,5.858,5.858,20,20,0,0,1,34.142,34.142,19.869,19.869,0,0,1,20,40ZM10,26.182h0A11.715,11.715,0,0,0,16.27,28h.019A11.469,11.469,0,0,0,27.962,16.5l-.014-.523A8.1,8.1,0,0,0,30,13.892a8.293,8.293,0,0,1-2.355.636,4.063,4.063,0,0,0,1.8-2.234,8.319,8.319,0,0,1-2.607.98A4.137,4.137,0,0,0,23.86,12h-.013a4.077,4.077,0,0,0-4.1,4.04,4.018,4.018,0,0,0,.105.92,11.729,11.729,0,0,1-8.456-4.221,3.973,3.973,0,0,0-.554,2.03,4.021,4.021,0,0,0,1.824,3.363,4.176,4.176,0,0,1-1.858-.508v.05a4.067,4.067,0,0,0,3.29,3.963,4.2,4.2,0,0,1-1.08.141,4.006,4.006,0,0,1-.773-.075,4.1,4.1,0,0,0,3.832,2.806A8.35,8.35,0,0,1,11,26.238h-.024A8.83,8.83,0,0,1,10,26.182Z"
+                                    fill="#f2f2f2" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+        <div class="copyright">
+            <small>Copyright &copy; 2020 The Filipino Club designed by <a href="#">michelle</a>. All rights
+                reserved.</small>
+        </div>
+    </footer>
+    <script src="index.js" async></script>
+</body>
+
+</html>
